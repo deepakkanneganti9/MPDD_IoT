@@ -1,0 +1,15 @@
+Dataset Description 
+
+• Human Activity Recognition (HAR): The HAR dataset used
+for this experiment is the popular PAMAP2 dataset , which con-
+tains 3,850,505 samples collected across 52 sensor channels from
+multiple subjects performing various daily activities.
+• Electricity : The Electricity dataset consists of 45,325 samples
+with nine features, collected from the New South Wales electricity
+market. It captures price fluctuations every five minutes, labeled
+based on changes relative to the 24-hour moving average.
+• Weather: The National Oceanic and Atmospheric Adminis-
+tration (NOAA) Weather dataset comprises 96,454 records with
+nine features describing key weather attributes. Collected over
+the past 50 years, it captures both short-term climate variations
+and long-term seasonal trends.
