@@ -81,3 +81,45 @@ Requirements
 - Python 3.9 or later
 - Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch.
 """
+
+File Name 3 : Experiment_1_PMDD_Framework_Weather_Dataset.ipynb
+
+Overview
+--------
+- Implements the PMDD (Performance Drift Detection) framework using the Weather dataset.
+- Designed to monitor MLaaS prediction stability under continuously changing environmental and climatic conditions.
+- Focuses on detecting gradual and seasonal performance drift where prediction accuracy fluctuates over time.
+
+Key Components
+--------------
+1. Drift Injection
+   - Introduces artificial drift patterns in weather attributes such as temperature, humidity, and wind speed.
+   - Simulates real-world environmental dynamics, including seasonal and climate-driven data shifts.
+
+2. MLaaS Extraction Model
+   - Builds a surrogate model to approximate the MLaaS provider’s internal behavior using input–output mappings.
+   - Learns and monitors relationships between weather attributes and MLaaS predictions to identify behavioral drift.
+
+3. Ground Truth Evaluation
+   - Compares MLaaS predictions against actual weather outcomes (e.g., rainfall occurrence or temperature class).
+   - Evaluates drift effects using metrics such as accuracy, false negatives, and detection delay.
+
+Workflow
+--------
+- Load and preprocess the Weather dataset.
+- Apply controlled drift scenarios (gradual or recurring).
+- Train the MLaaS extraction model to replicate prediction trends.
+- Continuously compare predicted and ground truth labels to detect drift.
+- Record and analyze drift type, detection confidence, and temporal behavior.
+
+Outputs
+-------
+- Visualization of weather-based drift intervals and detection points.
+- Performance summary tables highlighting detection delay and accuracy degradation.
+- Comparison between adaptive and static monitoring intervals.
+
+Requirements
+------------
+- Python 3.9 or later
+- Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch.
+"""
