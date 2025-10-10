@@ -1,1 +1,47 @@
 Experiment 2: Timeliness Evaluation of Adaptive Threshold Drift Detection Mechanism (ATDDM)
+File Name : Experiment_2_Adaptive_Temporal_PDMM_Benchmark_dataset_Final.ipynb
+
+Overview
+--------
+- Demonstrates the Adaptive Temporal Performance Drift Detection Mechanism (APDDM) built on top of the PMDD framework.
+- Designed to automatically adjust drift detection intervals based on recent performance trends of MLaaS systems.
+- Focuses on evaluating how adaptive monitoring improves detection stability and responsiveness compared to fixed-interval detection.
+
+Key Components
+--------------
+1. Adaptive Temporal Mechanism
+   - Dynamically modifies the monitoring window size according to the type of drift observed.
+   - When continuous real drift occurs, the mechanism shortens the interval for quicker updates.
+   - When frequent pseudo drifts appear, it extends the interval to reduce unnecessary checks.
+   - Ensures balanced monitoring sensitivity over time.
+
+2. Visualization Module
+   - Produces comparative plots between fixed and adaptive interval strategies.
+   - Displays how the adaptive window changes during execution and how drift alerts evolve.
+   - Helps visualize the adaptive decision process and its effect on monitoring efficiency.
+
+3. Evaluation Setup
+   - Evaluates both fixed and adaptive monitoring approaches on the benchmark dataset.
+   - Computes key metrics such as Miss Detection Rate (MD), False Negatives (FN), False Positives (FP), and Detection Delay.
+   - The evaluation results are generated automatically by running the notebook cells.
+   - Running this notebook will produce a detailed comparison of adaptive versus fixed interval performance, allowing direct visual and metric-based assessment.
+
+Workflow
+--------
+- Load the benchmark dataset.
+- Initialize the APDDM with defined parameters (thresholds, window limits, and adaptation rules).
+- Run drift detection under fixed and adaptive configurations.
+- Visualize the adaptive window evolution and detection intervals.
+- Compare computed metrics through automated evaluation functions.
+
+Outputs
+-------
+- Graphs comparing drift detection behaviour under both strategies.
+- Summary tables displaying performance metrics generated after execution.
+- Visual representation of adaptive window adjustments and drift response timing.
+
+Requirements
+------------
+- Python 3.9 or later
+- Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch.
+"""
