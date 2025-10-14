@@ -4,3 +4,110 @@ service and cause performance drift. Unlike traditional ML, developers can retra
 novel MLaaS performance drift detection framework for IoT environments. The framework first employs an MLaaS extraction model that learns the provider’s behaviour from input–output pairs, revealing prediction-influenced features of MLaaS. Building on this, we
 propose a novel MLaaS Performance Drift Detection (MPDD) model that jointly captures changes in input data and MLaaS behaviour. We introduce the Adaptive-Temporal Performance Drift Detection mechanism (APDDM), which is a variable interval mechanism to balance
 oversensitivity and oundersensitivity. Experimental resulton real-world datasets show the proposed MPDD achieves up to 15–20% higher accuracy and ATDDM achieves 50% fewer missed detections rate than benchmark drift methods for IoT environments
+
+
+## 📘 Overview
+
+The experiments collectively evaluate:
+- **Performance Drift in MLaaS systems** where internal model access is restricted.  
+- **Adaptive monitoring mechanisms** that automatically tune drift detection sensitivity.
+- **Impact of data drift** (e.g., user behavior, environmental changes, or market variations) on MLaaS prediction accuracy.
+
+The framework leverages **synthetic drift injection**, **MLaaS extraction modeling**, and **ground truth evaluation** to systematically assess detection accuracy, delay, and false alarms.
+
+---
+
+## ⚙️ Common Workflow
+
+All notebooks follow a consistent experimental workflow:
+
+1. **Load and preprocess dataset**  
+   Each dataset (HAR, Electricity, Weather, or Benchmark) is prepared and normalized.
+
+2. **Inject synthetic drift**  
+   Drift is introduced artificially to simulate real-world distribution shifts such as:
+   - Sudden, gradual, or incremental changes  
+   - Seasonal or behavioral variations  
+
+3. **Train MLaaS Extraction Model**  
+   - A lightweight surrogate model learns the mapping between inputs and MLaaS predictions.  
+   - Used to observe **black-box behaviour** and detect hidden performance degradation.
+
+4. **Evaluate Performance Drift**  
+   - Compare MLaaS predictions with true labels.  
+   - Compute metrics: accuracy degradation, detection delay, false positives, and pseudo drift rate.
+
+5. **Visualize Results**  
+   - Plots showing drift points, detection timelines, and adaptive interval variations.  
+   - Summary tables with comparative metrics.
+
+---
+
+## 🧪 Experiment Summaries
+
+### **Experiment 1: PMDD Framework Evaluation**
+
+This experiment demonstrates the **Performance Drift Detection (PMDD)** framework using multiple real-world datasets to assess its robustness under different domain conditions.
+
+#### 📂 File 1: `Experiment_1_PMDD_Framework_HAR_Dataset_Final_v2.ipynb`
+- **Dataset:** Human Activity Recognition (HAR)  
+- **Goal:** Detect accuracy degradation in MLaaS predictions caused by user or sensor drift.  
+- **Unique Aspect:** Focuses on human-centric data and sensor variability.  
+- **Outputs:** Drift detection plots and accuracy degradation summaries.
+
+#### 📂 File 2: `Experiment_1_PMDD_Framework_Electricity_Dataset.ipynb`
+- **Dataset:** Electricity Market Data  
+- **Goal:** Detect real vs. pseudo drift events due to changes in electricity demand and pricing.  
+- **Unique Aspect:** Evaluates MLaaS adaptability in fluctuating market conditions.  
+- **Outputs:** Visualizations of drift intervals, adaptive vs. fixed detection comparisons, and event logs.
+
+#### 📂 File 3: `Experiment_1_PMDD_Framework_Weather_Dataset.ipynb`
+- **Dataset:** Weather/Climate Data  
+- **Goal:** Monitor MLaaS stability under gradual and seasonal drifts.  
+- **Unique Aspect:** Highlights environmental dynamics affecting MLaaS prediction stability.  
+- **Outputs:** Drift detection plots and comparison of adaptive vs. static monitoring intervals.
+
+---
+
+### **Experiment 2: Adaptive Temporal Mechanism Evaluation**
+
+#### 📂 File: `Experiment_2_Adaptive_Temporal_PDMM_Benchmark_dataset_Final.ipynb`
+
+This notebook extends the PMDD framework with an **Adaptive Temporal Performance Drift Detection Mechanism (APDDM)**.
+
+- **Objective:** Automatically adjust monitoring intervals based on drift trends.  
+- **Mechanism:**
+  - **Shortens** intervals when real drift persists (for rapid response).  
+  - **Extends** intervals when pseudo drift dominates (to reduce false alarms).  
+- **Outputs:**
+  - Comparative plots of adaptive vs. fixed detection behavior.
+  - Metrics: Miss Detection (MD), False Negatives (FN), False Positives (FP), and Detection Delay.
+- **Unique Aspect:** Demonstrates **timeliness and responsiveness** of adaptive drift detection in dynamic MLaaS systems.
+
+---
+
+## 📊 Outputs Across Experiments
+
+- Drift detection plots over time.  
+- Adaptive vs. fixed window performance comparisons.  
+- Summary metrics including:
+  - **Accuracy degradation**
+  - **Detection delay**
+  - **False positive/negative rates**
+  - **Window sensitivity evolution**
+
+---
+
+## 🧩 Dependencies
+
+- **Python:** 3.9 or later  
+- **Libraries:**  
+  `numpy`, `pandas`, `matplotlib`, `scikit-learn`, `seaborn`, `tensorflow` or `torch`
+
+---
+
+## 📁 Repository Structure 
+├── Experiment_1_PMDD_Framework_HAR_Dataset_Final_v2.ipynb
+├── Experiment_1_PMDD_Framework_Electricity_Dataset_Final.ipynb
+├── Experiment_1_PMDD_Framework_Weather_Dataset.ipynb
+└── Experiment_2_Adaptive_Temporal_PDMM_Benchmark_dataset_Final.ipynb
