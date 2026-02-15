@@ -13,3 +13,11 @@ tration (NOAA) Weather dataset comprises 96,454 records with
 nine features describing key weather attributes. Collected over
 the past 50 years, it captures both short-term climate variations
 and long-term seasonal trends.
+• Airline : The Airline Delay dataset consists of 539,395
+instances with 8 features and originates from the Data Expo
+Competition (2009), containing arrival and departure records
+of commercial flights in the United States.
+• Poke : The Poker dataset comprises 1,000,000 samples
+with 11 attributes. Each instance corresponds to a hand of
+five playing cards drawn from a standard 52-card deck,
+encoded using rank and suit features.
