@@ -1,28 +1,4 @@
-Machine Learning as a Service (MLaaS) is a powerful cloud ser-
-vice that enables data-driven intelligent applications in Internet
-of Things (IoT) environments. Many IoT applications across smart
-healthcare, transportation, homes, cities, and industry rely on MLaaS
-due to its cost-effectiveness. The dynamic nature of IoT causes fre-
-quent changes in data distribution, and characteristics affect the
-stability of MLaaS performance. Moreover, MLaaS providers peri-
-odically update can further impact the predictive accuracy of the
-service and cause performance drift. Unlike traditional ML, devel-
-opers can retrain with access to data and parameters. MLaaS clients
-are black-box users without this control, making performance drift
-detection particularly challenging. To address this, we propose a
-novel MLaaS performance drift detection framework for IoT envi-
-ronments. The framework first employs an MLaaS extraction model
-that learns the provider’s behaviour from input–output pairs, re-
-vealing prediction-influenced features of MLaaS. Building on this,
-we propose a novel MLaaS Performance Drift Detection (MPDD)
-model that jointly captures changes in input data and MLaaS be-
-haviour. We introduce the Adaptive-Temporal Performance Drift
-Detection mechanism (APDDM), which is a variable interval mech-
-anism to balance oversensitivity and undersensitivity. Experimental
-results on real-world datasets show that the proposed MPDD model
-achieves up to 15 to 20 % higher accuracy, while the APDDM mech-
-anism achieves 65.19 % fewer false negatives compared with the
-fixed-interval approach
+Machine Learning as a Service (MLaaS) is a powerful cloud paradigm enabling data-driven intelligent applications in Internet of Things (IoT) environments, widely adopted across healthcare, smart homes, and industry due to its cost-effectiveness. However, the dynamic nature of IoT frequently alters data distributions, affecting MLaaS stability, while periodic MLaaS updates further introduce performance drift. Unlike traditional ML systems, MLaaS clients operate as black-box users without access to internal data or parameters, making drift detection particularly challenging. To address this, we propose a novel MLaaS Performance Drift Detection framework for IoT environments. The framework first employs an MLaaS extraction model that learns service behavior from input–output pairs and identifies prediction-influenced features. Building on this, the proposed MLaaS Performance Drift Detection (MPDD) model jointly captures variations in input data and MLaaS behavior. We further design an Adaptive-Temporal Performance Drift Detection Mechanism (APDDM) that dynamically adjusts monitoring frequency based on behavioral and data variations, enabling timely drift detection for effective service management. Extensive experiments on real-world datasets demonstrate that MPDD achieves up to 20–25\% accuracy improvement over baseline drift detection methods, while the adaptive APDDM provides an additional average accuracy gain of approximately 15\% and reduces the miss detection rate by around 10\% compared to fixed-interval monitoring. 
 
 ## 📘 Overview
 
