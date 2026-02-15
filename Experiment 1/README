@@ -1,125 +1,227 @@
-Experiment 1: Evaluation of MLaaS Perfromace Drift Detection approach
+Experiment 1: Evaluation of MLaaS Performance Drift Detection Approach
 
-File Name 1 : Experiment_1_PMDD_Framework_HAR_Dataset_Final_v2.ipynb
-Overview
---------
-- Detects performance drift in Machine Learning as a Service (MLaaS) systems.
-- Uses Human Activity Recognition (HAR) dataset as a test environment.
-- Focuses on detecting accuracy degradation over time caused by data drift.
-
-Key Components
---------------
-1. Drift Injection
-   - Introduces artificial drift (sudden, gradual, incremental) into data streams.
-   - Helps simulate real-world IoT data changes such as user behavior or sensor shifts.
-
-2. MLaaS Extraction Model
-   - Learns the behavior of a black-box MLaaS provider.
-   - Trained on input–output pairs to mimic service prediction patterns.
-   - Detects hidden performance changes without internal access.
-
-3. Ground Truth Evaluation
-   - Compares MLaaS predictions against true labels to measure drift impact.
-   - Computes accuracy, detection delay, and false negative metrics.
-
-Workflow
---------
-- Load original HAR dataset.
-- Add synthetic drift to simulate changes.
-- Train the MLaaS extraction model.
-- Evaluate against the ground truth.
-- Visualize drift detection and performance results.
-
-Outputs
--------
-- Plots showing drift detection over time.
-- Summary metrics including accuracy degradation and detection delay.
-
-Requirements
-------------
-- Python 3.9 or later
-- Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch.
-
-File Name 2 : Experiment_1_PMDD_Framework_Electricity_Dataset.ipynb
+File Name 1 : Experiment_1_MPDD_Framework_HAR_Dataset_Final_v2.ipynb
 
 Overview
---------
-- Demonstrates the PMDD (Performance Drift Detection) framework using the Electricity dataset.
-- Detects changes in model performance when the data distribution shifts due to varying electricity prices and demand conditions.
-- Focuses on identifying both real and pseudo drift events in MLaaS environments where model internals are inaccessible.
+
+* Detects performance drift in Machine Learning as a Service (MLaaS) systems.
+* Uses the Human Activity Recognition (HAR) dataset as a test environment.
+* Focuses on detecting accuracy degradation over time caused by data drift in dynamic IoT scenarios where model internals are not accessible.
 
 Key Components
---------------
+
 1. Drift Injection
-   - Introduces synthetic drift into the electricity market data stream.
-   - Mimics real-world data variation caused by market fluctuations, seasonal demand, and consumption patterns.
+
+   * Introduces artificial drift (sudden, gradual, incremental) into data streams.
+   * Simulates real-world IoT changes such as user behavior variation, sensor noise, and device heterogeneity.
 
 2. MLaaS Extraction Model
-   - Builds a lightweight surrogate model that learns the mapping between electricity input features (price, demand, etc.) and MLaaS predictions.
-   - Used to observe prediction changes over time, reflecting how MLaaS behaviour evolves with data drift.
+
+   * Learns the observable behavior of a black-box MLaaS provider.
+   * Trained on input–output query pairs to approximate service prediction patterns.
+   * Enables monitoring of hidden performance changes without accessing internal model parameters.
 
 3. Ground Truth Evaluation
-   - Compares MLaaS predictions with the actual electricity price direction (up/down) to compute drift performance.
-   - Measures accuracy degradation, detection delay, and rate of false alarms (pseudo drift).
+
+   * Compares MLaaS predictions against true labels to quantify drift impact.
+   * Computes accuracy, detection delay, and false negative metrics for robust drift assessment.
 
 Workflow
---------
-- Load and preprocess the Electricity dataset.
-- Inject synthetic drift across selected time intervals.
-- Train the MLaaS extraction model to mimic service predictions.
-- Continuously monitor predictions and compare them against the ground truth.
-- Identify and classify drift events as real or pseudo.
+
+* Load original HAR dataset.
+* Inject synthetic drift to simulate real-world distribution changes.
+* Train the MLaaS extraction (surrogate) model.
+* Evaluate predictions against ground truth labels.
+* Visualize drift detection behavior and performance degradation over time.
 
 Outputs
--------
-- Visualization plots showing drift intervals, detected drift points, and changes in model performance.
-- Summary logs reporting detection time, window sensitivity, and drift classification.
-- Comparative metrics between adaptive and fixed detection intervals.
+
+* Drift detection plots across temporal blocks.
+* Accuracy degradation curves and detection delay analysis.
+* Summary metrics for drift detection performance.
 
 Requirements
-------------
-- Python 3.9 or later
-- Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch.
-"""
 
-File Name 3 : Experiment_1_PMDD_Framework_Weather_Dataset.ipynb
+* Python 3.9 or later
+* Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch
+
+File Name 2 : Experiment_1_MPDD_Framework_Electricity_Dataset.ipynb
 
 Overview
---------
-- Implements the PMDD (Performance Drift Detection) framework using the Weather dataset.
-- Designed to monitor MLaaS prediction stability under continuously changing environmental and climatic conditions.
-- Focuses on detecting gradual and seasonal performance drift where prediction accuracy fluctuates over time.
+
+* Demonstrates the MPDD (Model Performance Drift Detection) framework using the Electricity dataset.
+* Detects changes in MLaaS model performance when the data distribution shifts due to varying electricity prices and demand conditions.
+* Focuses on identifying both real and pseudo drift events in black-box MLaaS environments.
 
 Key Components
---------------
+
 1. Drift Injection
-   - Introduces artificial drift patterns in weather attributes such as temperature, humidity, and wind speed.
-   - Simulates real-world environmental dynamics, including seasonal and climate-driven data shifts.
+
+   * Introduces synthetic drift into electricity market data streams.
+   * Mimics real-world fluctuations caused by seasonal demand, pricing variability, and consumption patterns.
 
 2. MLaaS Extraction Model
-   - Builds a surrogate model to approximate the MLaaS provider’s internal behavior using input–output mappings.
-   - Learns and monitors relationships between weather attributes and MLaaS predictions to identify behavioral drift.
+
+   * Builds a lightweight surrogate model that learns the mapping between electricity input features (price, demand, etc.) and MLaaS predictions.
+   * Used to observe prediction changes over time, reflecting how MLaaS behaviour evolves with data drift.
 
 3. Ground Truth Evaluation
-   - Compares MLaaS predictions against actual weather outcomes (e.g., rainfall occurrence or temperature class).
-   - Evaluates drift effects using metrics such as accuracy, false negatives, and detection delay.
+
+   * Compares MLaaS predictions with the actual electricity price direction (up/down) to compute drift performance.
+   * Measures accuracy degradation, detection delay, and rate of false alarms (pseudo drift).
 
 Workflow
---------
-- Load and preprocess the Weather dataset.
-- Apply controlled drift scenarios (gradual or recurring).
-- Train the MLaaS extraction model to replicate prediction trends.
-- Continuously compare predicted and ground truth labels to detect drift.
-- Record and analyze drift type, detection confidence, and temporal behavior.
+
+* Load and preprocess the Electricity dataset.
+* Inject synthetic drift across selected time intervals.
+* Train the MLaaS extraction model to mimic service predictions.
+* Continuously monitor predictions and compare them against the ground truth.
+* Identify and classify drift events as real or pseudo.
 
 Outputs
--------
-- Visualization of weather-based drift intervals and detection points.
-- Performance summary tables highlighting detection delay and accuracy degradation.
-- Comparison between adaptive and static monitoring intervals.
+
+* Visualization plots showing drift intervals, detected drift points, and changes in model performance.
+* Summary logs reporting detection time, window sensitivity, and drift classification.
+* Comparative metrics between adaptive and fixed detection intervals.
 
 Requirements
-------------
-- Python 3.9 or later
-- Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch.
-"""
+
+* Python 3.9 or later
+* Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch
+
+File Name 3 : Experiment_1_MPDD_Framework_Weather_Dataset.ipynb
+
+Overview
+
+* Implements the MPDD (Model Performance Drift Detection) framework using the Weather dataset.
+* Designed to monitor MLaaS prediction stability under continuously changing environmental and climatic conditions.
+* Focuses on detecting gradual and seasonal performance drift where prediction accuracy fluctuates over time.
+
+Key Components
+
+1. Drift Injection
+
+   * Introduces artificial drift patterns in weather attributes such as temperature, humidity, and wind speed.
+   * Simulates real-world environmental dynamics, including seasonal and climate-driven data shifts.
+
+2. MLaaS Extraction Model
+
+   * Builds a surrogate model to approximate the MLaaS provider’s internal behavior using input–output mappings.
+   * Learns and monitors relationships between weather attributes and MLaaS predictions to identify behavioral drift.
+
+3. Ground Truth Evaluation
+
+   * Compares MLaaS predictions against actual weather outcomes (e.g., rainfall occurrence or temperature class).
+   * Evaluates drift effects using metrics such as accuracy, false negatives, and detection delay.
+
+Workflow
+
+* Load and preprocess the Weather dataset.
+* Apply controlled drift scenarios (gradual or recurring).
+* Train the MLaaS extraction model to replicate prediction trends.
+* Continuously compare predicted and ground truth labels to detect drift.
+* Record and analyze drift type, detection confidence, and temporal behavior.
+
+Outputs
+
+* Visualization of weather-based drift intervals and detection points.
+* Performance summary tables highlighting detection delay and accuracy degradation.
+* Comparison between adaptive and static monitoring intervals.
+
+Requirements
+
+* Python 3.9 or later
+* Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch
+
+File Name 4 : Experiment_1_MPDD_Framework_Airline_Dataset.ipynb
+
+Overview
+
+* Extends the MPDD (Model Performance Drift Detection) framework to the Airline Delay dataset to evaluate performance drift in large-scale real-world temporal data streams.
+* Detects MLaaS performance degradation caused by evolving flight patterns, delays, and operational variability.
+* Represents a realistic dynamic dataset with strong temporal and distributional shifts.
+
+Dataset Description
+
+* The Airline Delay dataset consists of 539,395 instances with 8 features.
+* It originates from the Data Expo Competition (2009).
+* It contains arrival and departure records of commercial flights in the United States.
+
+Key Components
+
+1. Drift Injection
+
+   * Introduces synthetic drift across different temporal flight intervals.
+   * Simulates operational changes such as seasonal traffic, delays, and scheduling variations.
+
+2. MLaaS Extraction Model
+
+   * Learns black-box MLaaS decision behavior using flight-related input–output logs.
+   * Captures evolving prediction trends under shifting temporal distributions.
+
+3. Ground Truth Evaluation
+
+   * Compares MLaaS predictions with actual delay outcomes.
+   * Evaluates accuracy degradation, detection delay, and drift sensitivity over long data streams.
+
+Workflow
+
+* Load and preprocess the Airline Delay dataset.
+* Inject temporal drift across selected blocks.
+* Train the MLaaS extraction surrogate model.
+* Monitor prediction stability over time.
+* Detect performance drift using ground truth comparison.
+
+Outputs
+
+* Temporal drift detection plots for large-scale streaming data.
+* Accuracy trend analysis under long-term distribution shifts.
+* Detection delay and false negative performance metrics.
+
+Requirements
+
+* Python 3.9 or later
+* Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch
+
+File Name 5 : Experiment_1_MPDD_Framework_Poker_Dataset.ipynb
+
+Overview
+
+* Applies the MPDD (Model Performance Drift Detection) framework to the Poker dataset to evaluate drift detection under high-dimensional and large-scale classification settings.
+* Focuses on identifying performance drift in MLaaS predictions when data distributions change in complex combinational feature spaces.
+
+Dataset Description
+
+* The Poker dataset comprises 1,000,000 samples with 11 attributes.
+* Each instance corresponds to a hand of five playing cards drawn from a standard 52-card deck.
+* Features are encoded using rank and suit features, creating a structured yet highly variable data distribution.
+
+Key Components
+
+1. Drift Injection
+
+   * Introduces synthetic drift in card distribution patterns and feature combinations.
+   * Simulates concept variation in large-scale categorical datasets.
+
+2. MLaaS Extraction Model
+
+   * Trains a surrogate model to approximate MLaaS predictions based on rank and suit encoded inputs.
+   * Monitors prediction behavior in a high-volume data environment.
+
+3. Ground Truth Evaluation
+
+   * Compares MLaaS predictions with true poker hand class labels.
+   * Measures drift impact using accuracy degradation, false negatives, and detection delay.
+
+Workflow
+
+* Load and preprocess the Poker dataset.
+* Inject controlled drift into feature distributions.
+* Train the MLaaS extraction model.
+* Continuously evaluate prediction consistency against ground truth.
+* Detect real and pseudo performance drift in large-scale streaming conditions.
+
+Requirements
+
+* Python 3.9 or later
+* Required libraries: numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow or torch
